@@ -1,0 +1,4 @@
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\Cinema.Fest.Persistence.Dapper\bin\Debug\netstandard2.0\CinemaFest.Persistence.Dapper.deps.json
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\Cinema.Fest.Persistence.Dapper\bin\Debug\netstandard2.0\CinemaFest.Persistence.Dapper.dll
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\Cinema.Fest.Persistence.Dapper\obj\Debug\netstandard2.0\CinemaFest.Persistence.Dapper.AssemblyInfoInputs.cache
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\Cinema.Fest.Persistence.Dapper\obj\Debug\netstandard2.0\CinemaFest.Persistence.Dapper.AssemblyInfo.cs

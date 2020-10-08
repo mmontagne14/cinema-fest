@@ -1,0 +1,9 @@
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\Domain\bin\Debug\netstandard2.1\CinemaFest.Domain.deps.json
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\Domain\bin\Debug\netstandard2.1\CinemaFest.Domain.dll
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\Domain\bin\Debug\netstandard2.1\CinemaFest.Domain.pdb
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\Domain\obj\Debug\netstandard2.1\CinemaFest.Domain.csprojAssemblyReference.cache
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\Domain\obj\Debug\netstandard2.1\CinemaFest.Domain.AssemblyInfoInputs.cache
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\Domain\obj\Debug\netstandard2.1\CinemaFest.Domain.AssemblyInfo.cs
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\Domain\obj\Debug\netstandard2.1\CinemaFest.Domain.csproj.CoreCompileInputs.cache
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\Domain\obj\Debug\netstandard2.1\CinemaFest.Domain.dll
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\Domain\obj\Debug\netstandard2.1\CinemaFest.Domain.pdb

@@ -1,0 +1,14 @@
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Persistence.MockData\bin\Debug\netstandard2.1\CinemaFest.Persistence.MockData.deps.json
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Persistence.MockData\bin\Debug\netstandard2.1\CinemaFest.Persistence.MockData.dll
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Persistence.MockData\bin\Debug\netstandard2.1\CinemaFest.Persistence.MockData.pdb
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Persistence.MockData\bin\Debug\netstandard2.1\CinemaFest.Application.dll
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Persistence.MockData\bin\Debug\netstandard2.1\CinemaFest.Domain.dll
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Persistence.MockData\bin\Debug\netstandard2.1\CinemaFest.Application.pdb
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Persistence.MockData\bin\Debug\netstandard2.1\CinemaFest.Domain.pdb
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Persistence.MockData\obj\Debug\netstandard2.1\CinemaFest.Persistence.MockData.csprojAssemblyReference.cache
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Persistence.MockData\obj\Debug\netstandard2.1\CinemaFest.Persistence.MockData.AssemblyInfoInputs.cache
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Persistence.MockData\obj\Debug\netstandard2.1\CinemaFest.Persistence.MockData.AssemblyInfo.cs
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Persistence.MockData\obj\Debug\netstandard2.1\CinemaFest.Persistence.MockData.csproj.CoreCompileInputs.cache
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Persistence.MockData\obj\Debug\netstandard2.1\CinemaFest.Persistence.MockData.csproj.CopyComplete
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Persistence.MockData\obj\Debug\netstandard2.1\CinemaFest.Persistence.MockData.dll
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Persistence.MockData\obj\Debug\netstandard2.1\CinemaFest.Persistence.MockData.pdb

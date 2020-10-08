@@ -1,0 +1,355 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\WebApi\\CinemaFest.WebApi.csproj": {}
+  },
+  "projects": {
+    "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Application\\CinemaFest.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Application\\CinemaFest.Application.csproj",
+        "projectName": "CinemaFest.Application",
+        "projectPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Application\\CinemaFest.Application.csproj",
+        "packagesPath": "C:\\Users\\Marcelo\\.nuget\\packages\\",
+        "outputPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Marcelo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {
+              "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Domain\\CinemaFest.Domain.csproj": {
+                "projectPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Domain\\CinemaFest.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[9.2.2, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[9.2.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Cinema.Fest.Persistence.Dapper\\CinemaFest.Persistence.Dapper.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Cinema.Fest.Persistence.Dapper\\CinemaFest.Persistence.Dapper.csproj",
+        "projectName": "CinemaFest.Persistence.Dapper",
+        "projectPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Cinema.Fest.Persistence.Dapper\\CinemaFest.Persistence.Dapper.csproj",
+        "packagesPath": "C:\\Users\\Marcelo\\.nuget\\packages\\",
+        "outputPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Cinema.Fest.Persistence.Dapper\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Marcelo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {
+              "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Application\\CinemaFest.Application.csproj": {
+                "projectPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Application\\CinemaFest.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.35, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.21, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\CinemaFest.Persistence.MockData\\CinemaFest.Persistence.MockData.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\CinemaFest.Persistence.MockData\\CinemaFest.Persistence.MockData.csproj",
+        "projectName": "CinemaFest.Persistence.MockData",
+        "projectPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\CinemaFest.Persistence.MockData\\CinemaFest.Persistence.MockData.csproj",
+        "packagesPath": "C:\\Users\\Marcelo\\.nuget\\packages\\",
+        "outputPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\CinemaFest.Persistence.MockData\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Marcelo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {
+              "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Application\\CinemaFest.Application.csproj": {
+                "projectPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Application\\CinemaFest.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Domain\\CinemaFest.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Domain\\CinemaFest.Domain.csproj",
+        "projectName": "CinemaFest.Domain",
+        "projectPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Domain\\CinemaFest.Domain.csproj",
+        "packagesPath": "C:\\Users\\Marcelo\\.nuget\\packages\\",
+        "outputPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Marcelo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\WebApi\\CinemaFest.WebApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\WebApi\\CinemaFest.WebApi.csproj",
+        "projectName": "CinemaFest.WebApi",
+        "projectPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\WebApi\\CinemaFest.WebApi.csproj",
+        "packagesPath": "C:\\Users\\Marcelo\\.nuget\\packages\\",
+        "outputPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\WebApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Marcelo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Application\\CinemaFest.Application.csproj": {
+                "projectPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Application\\CinemaFest.Application.csproj"
+              },
+              "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Cinema.Fest.Persistence.Dapper\\CinemaFest.Persistence.Dapper.csproj": {
+                "projectPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Cinema.Fest.Persistence.Dapper\\CinemaFest.Persistence.Dapper.csproj"
+              },
+              "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\CinemaFest.Persistence.MockData\\CinemaFest.Persistence.MockData.csproj": {
+                "projectPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\CinemaFest.Persistence.MockData\\CinemaFest.Persistence.MockData.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Autofac": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Versioning": {
+              "target": "Package",
+              "version": "[4.1.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
