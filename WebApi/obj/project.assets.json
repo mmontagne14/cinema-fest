@@ -378,6 +378,15 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
+      "Newtonsoft.Json/12.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
         "runtimeTargets": {
@@ -1890,20 +1899,34 @@
           "bin/placeholder/CinemaFest.Domain.dll": {}
         }
       },
-      "CinemaFest.Persistence.Dapper/1.0.0": {
+      "CinemaFest.Infraestructure.Persistence/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
           "CinemaFest.Application": "1.0.0",
           "Dapper": "2.0.35",
           "Microsoft.Extensions.Configuration": "3.1.8",
-          "MySql.Data": "8.0.21"
+          "MySql.Data": "8.0.21",
+          "Newtonsoft.Json": "12.0.3"
         },
         "compile": {
-          "bin/placeholder/CinemaFest.Persistence.Dapper.dll": {}
+          "bin/placeholder/CinemaFest.Infraestructure.Persistence.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CinemaFest.Persistence.Dapper.dll": {}
+          "bin/placeholder/CinemaFest.Infraestructure.Persistence.dll": {}
+        }
+      },
+      "CinemaFest.Infraestructure.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "CinemaFest.Application": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/CinemaFest.Infraestructure.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CinemaFest.Infraestructure.Shared.dll": {}
         }
       },
       "CinemaFest.Persistence.MockData/1.0.0": {
@@ -2484,6 +2507,37 @@
         "dotnet_library_license.txt",
         "netstandard.library.1.6.1.nupkg.sha512",
         "netstandard.library.nuspec"
+      ]
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "type": "package",
+      "path": "newtonsoft.json/12.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.12.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -6478,10 +6532,15 @@
       "path": "../Domain/CinemaFest.Domain.csproj",
       "msbuildProject": "../Domain/CinemaFest.Domain.csproj"
     },
-    "CinemaFest.Persistence.Dapper/1.0.0": {
+    "CinemaFest.Infraestructure.Persistence/1.0.0": {
       "type": "project",
-      "path": "../Cinema.Fest.Persistence.Dapper/CinemaFest.Persistence.Dapper.csproj",
-      "msbuildProject": "../Cinema.Fest.Persistence.Dapper/CinemaFest.Persistence.Dapper.csproj"
+      "path": "../CinemaFest.Infraestructure.Persistence/CinemaFest.Infraestructure.Persistence.csproj",
+      "msbuildProject": "../CinemaFest.Infraestructure.Persistence/CinemaFest.Infraestructure.Persistence.csproj"
+    },
+    "CinemaFest.Infraestructure.Shared/1.0.0": {
+      "type": "project",
+      "path": "../CinemaFest.Infraestructure.Shared/CinemaFest.Infraestructure.Shared.csproj",
+      "msbuildProject": "../CinemaFest.Infraestructure.Shared/CinemaFest.Infraestructure.Shared.csproj"
     },
     "CinemaFest.Persistence.MockData/1.0.0": {
       "type": "project",
@@ -6493,7 +6552,8 @@
     ".NETCoreApp,Version=v3.1": [
       "Autofac >= 6.0.0",
       "CinemaFest.Application >= 1.0.0",
-      "CinemaFest.Persistence.Dapper >= 1.0.0",
+      "CinemaFest.Infraestructure.Persistence >= 1.0.0",
+      "CinemaFest.Infraestructure.Shared >= 1.0.0",
       "CinemaFest.Persistence.MockData >= 1.0.0",
       "MediatR >= 8.1.0",
       "MediatR.Extensions.Microsoft.DependencyInjection >= 8.1.0",
@@ -6531,8 +6591,11 @@
             "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Application\\CinemaFest.Application.csproj": {
               "projectPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Application\\CinemaFest.Application.csproj"
             },
-            "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Cinema.Fest.Persistence.Dapper\\CinemaFest.Persistence.Dapper.csproj": {
-              "projectPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\Cinema.Fest.Persistence.Dapper\\CinemaFest.Persistence.Dapper.csproj"
+            "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\CinemaFest.Infraestructure.Persistence\\CinemaFest.Infraestructure.Persistence.csproj": {
+              "projectPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\CinemaFest.Infraestructure.Persistence\\CinemaFest.Infraestructure.Persistence.csproj"
+            },
+            "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\CinemaFest.Infraestructure.Shared\\CinemaFest.Infraestructure.Shared.csproj": {
+              "projectPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\CinemaFest.Infraestructure.Shared\\CinemaFest.Infraestructure.Shared.csproj"
             },
             "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\CinemaFest.Persistence.MockData\\CinemaFest.Persistence.MockData.csproj": {
               "projectPath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\CinemaFest.Persistence.MockData\\CinemaFest.Persistence.MockData.csproj"

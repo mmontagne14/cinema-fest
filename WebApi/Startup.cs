@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using CinemaFest.Application;
 using CinemaFest.Persistence.MockData;
+using CinemaFest.Infraestructure.Shared;
 using CinemaFest.Persistence.Dapper;
 using CinemaFest.WebApi.Extensions;
 
@@ -26,7 +27,8 @@ namespace WebApi
             services.AddControllers();
             services.AddApplication();
             //services.AddMockDataSource();
-            services.AddPersistenceDapper(Configuration);
+            services.AddPersistence(Configuration);
+            services.AddShared();
             services.AddSwaggerExtension();
             services.AddApiVersioningExtension();
         }

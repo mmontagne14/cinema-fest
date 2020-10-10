@@ -18,6 +18,11 @@ namespace CinemaFest.Persistence.MockData
             return Task.FromResult(entity.Id);
         }
 
+        public Task<int> AddFestivalAsync(Festival festival)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<int> DeleteAsync(int id)
         {
             throw new NotImplementedException();

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "meW+tEjkNmWYK13ZtZBR4LlLHdAMe/2qlMRTraV/saNEmAspeYSL1MLAfztER9TC+LK/BtjVJJcWJTV9YXdAWw==",
+  "dgSpecHash": "kYumzhsrx4oU13N62voX/cOslYc9ItF5BzgTdGNPAvovC3zkwXpgqEvBQEWxQ0ZvmS2pcaAmwdJ0YfyNq2e2ZQ==",
   "success": true,
   "projectFilePath": "D:\\Repositories\\CinemaFest\\BackEnd\\CinemaFest\\WebApi\\CinemaFest.WebApi.csproj",
   "expectedPackageFiles": [
@@ -32,6 +32,7 @@
     "C:\\Users\\Marcelo\\.nuget\\packages\\microsoft.win32.systemevents\\4.6.0\\microsoft.win32.systemevents.4.6.0.nupkg.sha512",
     "C:\\Users\\Marcelo\\.nuget\\packages\\mysql.data\\8.0.21\\mysql.data.8.0.21.nupkg.sha512",
     "C:\\Users\\Marcelo\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
+    "C:\\Users\\Marcelo\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\Marcelo\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Marcelo\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Marcelo\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

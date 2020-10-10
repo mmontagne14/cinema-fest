@@ -1,0 +1,14 @@
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Persistence\bin\Debug\netstandard2.1\CinemaFest.Infraestructure.Persistence.deps.json
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Persistence\bin\Debug\netstandard2.1\CinemaFest.Infraestructure.Persistence.dll
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Persistence\bin\Debug\netstandard2.1\CinemaFest.Infraestructure.Persistence.pdb
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Persistence\bin\Debug\netstandard2.1\CinemaFest.Application.dll
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Persistence\bin\Debug\netstandard2.1\CinemaFest.Domain.dll
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Persistence\bin\Debug\netstandard2.1\CinemaFest.Application.pdb
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Persistence\bin\Debug\netstandard2.1\CinemaFest.Domain.pdb
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Persistence\obj\Debug\netstandard2.1\CinemaFest.Infraestructure.Persistence.csprojAssemblyReference.cache
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Persistence\obj\Debug\netstandard2.1\CinemaFest.Infraestructure.Persistence.AssemblyInfoInputs.cache
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Persistence\obj\Debug\netstandard2.1\CinemaFest.Infraestructure.Persistence.AssemblyInfo.cs
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Persistence\obj\Debug\netstandard2.1\CinemaFest.Infraestructure.Persistence.csproj.CoreCompileInputs.cache
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Persistence\obj\Debug\netstandard2.1\CinemaFest.Infraestructure.Persistence.csproj.CopyComplete
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Persistence\obj\Debug\netstandard2.1\CinemaFest.Infraestructure.Persistence.dll
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Persistence\obj\Debug\netstandard2.1\CinemaFest.Infraestructure.Persistence.pdb

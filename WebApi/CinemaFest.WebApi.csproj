@@ -20,7 +20,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Application\CinemaFest.Application.csproj" />
-    <ProjectReference Include="..\Cinema.Fest.Persistence.Dapper\CinemaFest.Persistence.Dapper.csproj" />
+    <ProjectReference Include="..\CinemaFest.Infraestructure.Persistence\CinemaFest.Infraestructure.Persistence.csproj" />
+    <ProjectReference Include="..\CinemaFest.Infraestructure.Shared\CinemaFest.Infraestructure.Shared.csproj" />
     <ProjectReference Include="..\CinemaFest.Persistence.MockData\CinemaFest.Persistence.MockData.csproj" />
   </ItemGroup>
 

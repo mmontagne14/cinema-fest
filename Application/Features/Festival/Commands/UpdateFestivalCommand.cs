@@ -36,7 +36,7 @@ namespace CinemaFest.Application.Features.Festival.Commands
             public async Task<Response<int>> Handle(UpdateFestivalCommand command, CancellationToken cancellationToken)
             {
                 var festival = await unitOfWork.Festivals.GetByIdAsync(command.Id);
-                if(festival == null)
+                if (festival == null)
                     throw new Exception($"El festival no fue encontrado.");
 
 

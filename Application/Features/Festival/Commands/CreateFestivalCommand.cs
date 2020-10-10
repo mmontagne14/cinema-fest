@@ -9,6 +9,9 @@
     using AutoMapper;
     using System;
     using System.IO;
+    using CinemaFest.Application.Dtos;
+    using System.Collections;
+    using System.Collections.Generic;
 
     public class CreateFestivalCommand : IRequest<Response<int>>
     {
@@ -18,6 +21,9 @@
 
         public string ProfileImgFilePath { get; set; }
         public string CoverPageImgFilePath { get; set; }
+        public ContactDto Contact { get; set; }
+
+        public ICollection<AddressDto> Locations { get; set; }
 
         //TODO change string for IFormFile and add it to Fluent Validator (size and format)
 
@@ -25,43 +31,27 @@
         {
             private readonly IUnitOfWork unitOfwork;
             private readonly IMapper mapper;
+            private readonly IFileService fileService;
 
-            public CreateFestivalCommandHandler(IUnitOfWork unitOfwork, IMapper mapper)
+            public CreateFestivalCommandHandler(IUnitOfWork unitOfwork, IMapper mapper, IFileService fileService)
             {
                 this.unitOfwork = unitOfwork;
                 this.mapper = mapper;
+                this.fileService = fileService;
             }
             
             public async Task<Response<int>> Handle(CreateFestivalCommand request, CancellationToken cancellationToken)
             {
                 var festival = mapper.Map<Festival>(request);
-                festival.CreatedAt = DateTime.Now;
-                festival.ModifiedAt = DateTime.Now;
-                festival.Active = true;
+                festival.SetInitialProperties();
 
-                festival.ProfileImg = GetBinaryFileFromStream(request.ProfileImgFilePath);
-                festival.CoverPageImg = GetBinaryFileFromStream(request.CoverPageImgFilePath);
+                festival.ProfileImg = request.ProfileImgFilePath != null ? fileService.GetBinaryFileFromStream(request.ProfileImgFilePath) : null;
+                festival.CoverPageImg = request.CoverPageImgFilePath != null ? fileService.GetBinaryFileFromStream(request.CoverPageImgFilePath) : null;
 
-                festival.Id = await unitOfwork.Festivals.AddAsync(festival);
+                festival.Id = await unitOfwork.Festivals.AddFestivalAsync(festival);
                 unitOfwork.Commit();
                 return new Response<int>(festival.Id);
             }
-
-
-            private byte[] GetBinaryFileFromStream(string varFilePath)
-            {
-                byte[] file;
-                using (var stream = new FileStream(varFilePath, FileMode.Open, FileAccess.Read))
-                {
-                    using (var reader = new BinaryReader(stream))
-                    {
-                        file = reader.ReadBytes((int)stream.Length);
-                    }
-                }
-                return file;
-            }
-
-
         }
     }
 }

@@ -1,0 +1,14 @@
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Shared\bin\Debug\netstandard2.1\CinemaFest.Infraestructure.Shared.deps.json
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Shared\bin\Debug\netstandard2.1\CinemaFest.Infraestructure.Shared.dll
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Shared\bin\Debug\netstandard2.1\CinemaFest.Infraestructure.Shared.pdb
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Shared\bin\Debug\netstandard2.1\CinemaFest.Application.dll
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Shared\bin\Debug\netstandard2.1\CinemaFest.Domain.dll
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Shared\bin\Debug\netstandard2.1\CinemaFest.Application.pdb
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Shared\bin\Debug\netstandard2.1\CinemaFest.Domain.pdb
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Shared\obj\Debug\netstandard2.1\CinemaFest.Infraestructure.Shared.csprojAssemblyReference.cache
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Shared\obj\Debug\netstandard2.1\CinemaFest.Infraestructure.Shared.AssemblyInfoInputs.cache
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Shared\obj\Debug\netstandard2.1\CinemaFest.Infraestructure.Shared.AssemblyInfo.cs
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Shared\obj\Debug\netstandard2.1\CinemaFest.Infraestructure.Shared.csproj.CoreCompileInputs.cache
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Shared\obj\Debug\netstandard2.1\CinemaFest.Infraestructure.Shared.csproj.CopyComplete
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Shared\obj\Debug\netstandard2.1\CinemaFest.Infraestructure.Shared.dll
+D:\Repositories\CinemaFest\BackEnd\CinemaFest\CinemaFest.Infraestructure.Shared\obj\Debug\netstandard2.1\CinemaFest.Infraestructure.Shared.pdb
