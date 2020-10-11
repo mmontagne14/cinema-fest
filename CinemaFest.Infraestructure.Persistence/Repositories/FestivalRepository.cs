@@ -51,61 +51,6 @@ namespace CinemaFest.Persistence.Dapper.Repositories
                     festival.Locations
                 }, dbTransaction, commandType: CommandType.StoredProcedure);
 
-
-
-            //var locations = entity.Locations;
-
-            //var insertFestivalSql = new StringBuilder(@"
-            //    INSERT INTO Festivals(CreatedAt,ModifiedAt,Name,About,FirstEditionYear,Active)
-            //    values(@createdAt,@modifiedAt,@name,@about,@firstEditionYear,@active)");
-
-            //var festivalId = await dbConnection.ExecuteScalarAsync<int>(
-            //    insertFestivalSql.Append(insertRowRetrievalQuery)
-            //    .ToString(),
-            //    new
-            //    {
-            //        entity.CreatedAt,
-            //        entity.ModifiedAt,
-            //        entity.Name,
-            //        entity.About,
-            //        entity.FirstEditionYear,
-            //        entity.Active
-            //    }, dbTransaction);
-
-            //if (entity.ProfileImg != null && entity.ProfileImg.Length > 0)
-            //{
-            //    await dbConnection.ExecuteAsync(@"
-
-
-            //        INSERT INTO FestivalImages(Img, TypeId, FestivalId)
-            //        VALUES(@Img, @TypeId, @FestivalId)",
-            //        new
-            //        {
-            //            Img = entity.ProfileImg,
-            //            TypeId = 1,
-            //            festivalId
-            //        }, dbTransaction);
-            //}
-
-
-            //if (locations.Any())
-            //{
-            //    foreach (Location l in locations)
-            //    {
-            //        await dbConnection.ExecuteAsync(@"
-            //        INSERT INTO Locations(StreetAddress, City, State, ZipCode)
-            //        VALUES(@StreetAddress, @City, @State, @ZipCode, @festivalId)",
-            //        new
-            //        {
-            //            l.StreetAddress,
-            //            l.City,
-            //            l.State,
-            //            l.ZipCode,
-            //            festivalId    
-            //        }, dbTransaction);
-            //    }
-            //}
-
             return festivalId;
 
         }

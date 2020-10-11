@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE `cinemafest`.`InsertFestival`(
+﻿CREATE DEFINER=`root`@`localhost` PROCEDURE `cinemafest`.`InsertFestival`(
                     CreatedAt DATE,
                     ModifiedAt DATE,
                     Name VARCHAR(45),
@@ -30,5 +30,23 @@ begin
 	                    VALUES(CoverPageImg, @CoverPageImageTypeId, @FestivalId);
 	end if;
     
+	if (Locations is not null) then
+	
+	set @json_items = JSON_LENGTH(`Locations`);
+    set @index = 0;
+
+    WHILE @index < @json_items DO
+         INSERT INTO cinemafest.locations (StreetAddress,City,State,ZipCode,festival_Id)
+         VALUES (
+        JSON_EXTRACT(`Locations`, CONCAT('$[', @index, '].StreetAddress')),
+        JSON_EXTRACT(`Locations`, CONCAT('$[', @index, '].City')),
+        JSON_EXTRACT(`Locations`, CONCAT('$[', @index, '].State')),
+        JSON_EXTRACT(`Locations`, CONCAT('$[', @index, '].ZipCode')),
+       	@FestivalId
+        );
+         SET @index := @index + 1;
+    END WHILE;
+    
+	end if;
 	select @FestivalId;
 END
