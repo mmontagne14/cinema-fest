@@ -6,6 +6,6 @@ namespace CinemaFest.Application.Interfaces
 {
     public interface IFileService
     {
-        byte[] GetBinaryFileFromStream(string varFilePath);
+        string GetBase64FromStream(string varFilePath);
     }
 }

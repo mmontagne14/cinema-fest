@@ -1,6 +1,4 @@
-﻿
-
-namespace CinemaFest.Application.Features.Festival.Commands
+﻿namespace CinemaFest.Application.Features.Festival.Commands
 {
     using CinemaFest.Application.Wrappers;
     using MediatR;
@@ -10,41 +8,46 @@ namespace CinemaFest.Application.Features.Festival.Commands
     using CinemaFest.Application.Interfaces;
     using AutoMapper;
     using System;
+    using CinemaFest.Application.Dtos;
+    using System.Collections.Generic;
 
     public class UpdateFestivalCommand : IRequest<Response<int>>
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string About { get; set; }
-        public string Awards { get; set; }
         public int FirstEditionYear { get; set; }
+        public ContactDto Contact { get; set; }
 
-        public bool Active { get; set; }
+        public ICollection<LocationDto> Locations { get; set; }
+
+        public ICollection<ImageDto> Images { get; set; }
 
         public class UpdateFestivalCommandHandler : IRequestHandler<UpdateFestivalCommand, Response<int>>
         {
             private readonly IUnitOfWork unitOfWork;
             private readonly IMapper mapper;
- 
+            private readonly IFileService fileService;
 
-            public UpdateFestivalCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+            public UpdateFestivalCommandHandler(IUnitOfWork unitOfWork, IMapper mapper, IFileService fileService)
             {
                 this.unitOfWork = unitOfWork;
                 this.mapper = mapper;
+                this.fileService = fileService;
             }
             
             public async Task<Response<int>> Handle(UpdateFestivalCommand command, CancellationToken cancellationToken)
             {
-                var festival = await unitOfWork.Festivals.GetByIdAsync(command.Id);
-                if (festival == null)
-                    throw new Exception($"El festival no fue encontrado.");
+                var festival = mapper.Map<Festival>(command);
+                festival.ModifiedAt = DateTime.Now;
 
+                foreach (FestivalImage img in festival.Images)
+                {
+                    img.Img = fileService.GetBase64FromStream(img.FilePath);
+                }
 
-                festival.Name = command.Name;
-                festival.About = command.About;
-                festival.Active = command.Active;
-
-                await unitOfWork.Festivals.UpdateAsync(festival);
+                await unitOfWork.Festivals.UpdateFestivalWithImagesAndLocationsAsync(festival);
+                unitOfWork.Commit();
                 return new Response<int>(festival.Id);
             }
         }

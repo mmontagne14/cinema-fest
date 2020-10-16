@@ -12,6 +12,9 @@ namespace CinemaFest.Application.Mappings
             CreateMap<CreateFestivalCommand, Festival>();
             CreateMap<ContactDto, Contact>();
             CreateMap<AddressDto, Address>();
+            CreateMap<LocationDto, Location>();
+            CreateMap<ImageDto, FestivalImage>();
+            CreateMap<UpdateFestivalCommand, Festival>();
         }
     }
 }

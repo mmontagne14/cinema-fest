@@ -30,7 +30,7 @@ namespace CinemaFest.Persistence.Dapper.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Event>> GetAllAsync()
+        public Task<IEnumerable<Event>> GetAllFestivalsAsync()
         {
             throw new NotImplementedException();
         }

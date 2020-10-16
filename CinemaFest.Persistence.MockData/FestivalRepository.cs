@@ -18,7 +18,7 @@ namespace CinemaFest.Persistence.MockData
             return Task.FromResult(entity.Id);
         }
 
-        public Task<int> AddFestivalAsync(Festival festival)
+        public Task<int> CreateFestivalWithImagesAndLocationsAsync(Festival festival)
         {
             throw new NotImplementedException();
         }
@@ -28,7 +28,7 @@ namespace CinemaFest.Persistence.MockData
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Festival>> GetAllAsync()
+        public Task<IEnumerable<Festival>> RetrieveAllFestivalsWithImagesAndLocationsAsync()
         {
             return Task.FromResult(FestivalFactory.GetFestivalList());
         }
@@ -39,6 +39,16 @@ namespace CinemaFest.Persistence.MockData
         }
 
         public Task<int> UpdateAsync(Festival entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> UpdateFestivalWithImagesAndLocationsAsync(Festival festival)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Festival> RetrieveFestivalWithImagesAndLocationsByIdAsync(int id)
         {
             throw new NotImplementedException();
         }

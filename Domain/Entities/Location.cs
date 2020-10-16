@@ -7,8 +7,8 @@ namespace CinemaFest.Domain.Entities
     public class Location : Address
     {
         
-
-        public int FestivalId { get; set; }
+        public int Id { get; set; }
+        public int Festival_Id { get; set; }
 
         public int? EventId { get; set; }
     }

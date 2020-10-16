@@ -12,6 +12,8 @@
     using CinemaFest.Application.Dtos;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Runtime.CompilerServices;
+    using CinemaFest.Domain.Common;
 
     public class CreateFestivalCommand : IRequest<Response<int>>
     {
@@ -19,11 +21,14 @@
         public string About { get; set; }
         public int FirstEditionYear { get; set; }
 
-        public string ProfileImgFilePath { get; set; }
-        public string CoverPageImgFilePath { get; set; }
+        //public string ProfileImgFilePath { get; set; }
+        //public string CoverPageImgFilePath { get; set; }
         public ContactDto Contact { get; set; }
 
-        public ICollection<AddressDto> Locations { get; set; }
+        public ICollection<LocationDto> Locations { get; set; }
+
+        public ICollection<ImageDto> Images { get; set; }
+
 
         //TODO change string for IFormFile and add it to Fluent Validator (size and format)
 
@@ -40,18 +45,24 @@
                 this.fileService = fileService;
             }
             
-            public async Task<Response<int>> Handle(CreateFestivalCommand request, CancellationToken cancellationToken)
+            public async Task<Response<int>> Handle(CreateFestivalCommand command, CancellationToken cancellationToken)
             {
-                var festival = mapper.Map<Festival>(request);
+                var festival = mapper.Map<Festival>(command);
                 festival.SetInitialProperties();
 
-                festival.ProfileImg = request.ProfileImgFilePath != null ? fileService.GetBinaryFileFromStream(request.ProfileImgFilePath) : null;
-                festival.CoverPageImg = request.CoverPageImgFilePath != null ? fileService.GetBinaryFileFromStream(request.CoverPageImgFilePath) : null;
+                //festival.ProfileImg = request.ProfileImgFilePath != null ? fileService.GetBase64FromStream(request.ProfileImgFilePath) : null;
+                //festival.CoverPageImg = request.CoverPageImgFilePath != null ? fileService.GetBase64FromStream(request.CoverPageImgFilePath) : null;
 
-                festival.Id = await unitOfwork.Festivals.AddFestivalAsync(festival);
+                foreach(FestivalImage img in festival.Images)
+                {
+                    img.Img = fileService.GetBase64FromStream(img.FilePath);
+                }
+
+                festival.Id = await unitOfwork.Festivals.CreateFestivalWithImagesAndLocationsAsync(festival);
                 unitOfwork.Commit();
                 return new Response<int>(festival.Id);
             }
+
         }
     }
 }

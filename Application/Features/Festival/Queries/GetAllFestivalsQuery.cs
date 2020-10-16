@@ -21,7 +21,7 @@
         
         public async Task<IEnumerable<Festival>> Handle(GetAllFestivalsQuery request, CancellationToken cancellationToken)
         {
-            return await unitOfWork.Festivals.GetAllAsync();
+            return await unitOfWork.Festivals.RetrieveAllFestivalsWithImagesAndLocationsAsync();
         }
     }
 }

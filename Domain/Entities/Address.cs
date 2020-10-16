@@ -8,9 +8,9 @@ namespace CinemaFest.Domain.Entities
     {
         public string StreetAddress { get; set; }
 
-        public string City { get; set; }
+        public string City { get; set; } //TODO add table cities
 
-        public string State { get; set; }
+        public string State { get; set; } //TODO add table states
 
         public int ZipCode { get; set; }
     }

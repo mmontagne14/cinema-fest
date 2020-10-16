@@ -22,4 +22,19 @@
     <ProjectReference Include="..\Application\CinemaFest.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Scripts\DataSeed.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataSeed.sql</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Scripts\DataSeed.sql">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSeed.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
 </Project>
