@@ -52,5 +52,10 @@ namespace CinemaFest.Persistence.MockData
         {
             throw new NotImplementedException();
         }
+
+        public bool FestivalExistsById(int Id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

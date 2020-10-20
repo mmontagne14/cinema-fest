@@ -23,6 +23,8 @@
 
         public ICollection<ImageDto> Images { get; set; }
 
+        public ICollection<TaxonomyDto> Taxonomies { get; set; }
+
         public class UpdateFestivalCommandHandler : IRequestHandler<UpdateFestivalCommand, Response<int>>
         {
             private readonly IUnitOfWork unitOfWork;
@@ -40,11 +42,7 @@
             {
                 var festival = mapper.Map<Festival>(command);
                 festival.ModifiedAt = DateTime.Now;
-
-                foreach (FestivalImage img in festival.Images)
-                {
-                    img.Img = fileService.GetBase64FromStream(img.FilePath);
-                }
+                festival.Images = fileService.GetBase64FromFestivalImagesStream(festival.Images);
 
                 await unitOfWork.Festivals.UpdateFestivalWithImagesAndLocationsAsync(festival);
                 unitOfWork.Commit();

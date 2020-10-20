@@ -6,12 +6,15 @@ namespace CinemaFest.Domain.Entities
 {
     public class Address
     {
-        public string StreetAddress { get; set; }
+        public string Street { get; set; }
 
-        public string City { get; set; } //TODO add table cities
+        public string Number { get; set; } 
 
-        public string State { get; set; } //TODO add table states
+        public int? Floor { get; set; }
 
-        public int ZipCode { get; set; }
+        public string Apartment { get; set; } 
+         
+        public Locality Locality { get; set; }
+        public int Locality_Id { get; set; }
     }
 }

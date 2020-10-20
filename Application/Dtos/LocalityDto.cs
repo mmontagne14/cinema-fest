@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace CinemaFest.Application.Dtos
 {
-    public class LocationDto : AddressDto
+    public class LocalityDto
     {
         public int Id { get; set; }
-        
-        public int Festival_Id { get; set; }
 
-        public int? Event_Id { get; set; }
+        public string Name { get; set; }
+
+        public int PostalCode { get; set; }
+
+        public ProvinceDto Province { get; set; }
     }
 }

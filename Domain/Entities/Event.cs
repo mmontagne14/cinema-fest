@@ -19,8 +19,7 @@ namespace CinemaFest.Domain.Entities
         public int FestivalId { get; set; }
         public Festival Festival { get; set; } 
 
-        public ICollection<EventType> EventTypes { get; set; }
-        public ICollection<EventCategory> Categories { get; set; }
+        public ICollection<Taxonomy> Taxonomies { get; set; }
         public ICollection<EventPeople> People { get; set; }
     }
 }

@@ -21,16 +21,14 @@
         public string About { get; set; }
         public int FirstEditionYear { get; set; }
 
-        //public string ProfileImgFilePath { get; set; }
-        //public string CoverPageImgFilePath { get; set; }
         public ContactDto Contact { get; set; }
 
         public ICollection<LocationDto> Locations { get; set; }
 
         public ICollection<ImageDto> Images { get; set; }
 
-
-        //TODO change string for IFormFile and add it to Fluent Validator (size and format)
+        public ICollection<TaxonomyDto> Taxonomies { get; set; }
+        //TODO change string to IFormFile and add it to Fluent Validator (size and format)
 
         public class CreateFestivalCommandHandler : IRequestHandler<CreateFestivalCommand, Response<int>>
         {
@@ -50,15 +48,8 @@
                 var festival = mapper.Map<Festival>(command);
                 festival.SetInitialProperties();
 
-                //festival.ProfileImg = request.ProfileImgFilePath != null ? fileService.GetBase64FromStream(request.ProfileImgFilePath) : null;
-                //festival.CoverPageImg = request.CoverPageImgFilePath != null ? fileService.GetBase64FromStream(request.CoverPageImgFilePath) : null;
-
-                foreach(FestivalImage img in festival.Images)
-                {
-                    img.Img = fileService.GetBase64FromStream(img.FilePath);
-                }
-
-                festival.Id = await unitOfwork.Festivals.CreateFestivalWithImagesAndLocationsAsync(festival);
+                festival.Images = fileService.GetBase64FromFestivalImagesStream(festival.Images);
+                festival.Id = await unitOfwork.Festivals.CreateFestivalAsync(festival);
                 unitOfwork.Commit();
                 return new Response<int>(festival.Id);
             }

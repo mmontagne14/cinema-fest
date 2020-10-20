@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CinemaFest.Application.Interfaces
 {
-    public interface IEventRepository : IGenericRepository<Event>
+    public interface IEventRepository //: IGenericRepository<Event>
     {
 
     }

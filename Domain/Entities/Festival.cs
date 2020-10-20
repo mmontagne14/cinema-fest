@@ -11,9 +11,6 @@ namespace CinemaFest.Domain.Entities
 
         public string About { get; set; }
         
-        //public string ProfileImg { get; set; }
-
-        //public string CoverPageImg { get; set; }
         public int FirstEditionYear { get; set; }
 
         public bool Active { get; set; }
@@ -24,6 +21,8 @@ namespace CinemaFest.Domain.Entities
         public ICollection<Event> Events { get; set; }
 
         public ICollection<FestivalImage> Images { get; set; }
+
+        public ICollection<Taxonomy> Taxonomies { get; set; }
 
 
         public void SetInitialProperties()

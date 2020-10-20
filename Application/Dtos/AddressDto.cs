@@ -3,12 +3,17 @@
 namespace CinemaFest.Application.Dtos
 {
     public class AddressDto { 
-        public string StreetAddress { get; set; }
 
-        public string City { get; set; }
+        public string Street { get; set; }
 
-        public string State { get; set; }
+        public string Number { get; set; }
 
-        public int ZipCode { get; set; }
+        public int? Floor { get; set; }
+
+        public string Apartment { get; set; }
+
+        public LocalityDto Locality { get; set; }
+
+        public int Locality_Id { get; set; }
     }
 }

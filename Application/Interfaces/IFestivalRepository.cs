@@ -6,9 +6,11 @@ namespace CinemaFest.Application.Interfaces
 {
     public interface IFestivalRepository // : IGenericRepository<Festival>
     {
-        Task<int> CreateFestivalWithImagesAndLocationsAsync(Festival festival);
+        Task<int> CreateFestivalAsync(Festival festival);
         Task<int> UpdateFestivalWithImagesAndLocationsAsync(Festival festival);
         Task<IEnumerable<Festival>> RetrieveAllFestivalsWithImagesAndLocationsAsync();
-        Task<Festival> RetrieveFestivalWithImagesAndLocationsByIdAsync(int id);
+        Task<Festival> RetrieveFestivalByIdAsync(int id);
+
+        bool FestivalExistsById(int Id);
     }
 }

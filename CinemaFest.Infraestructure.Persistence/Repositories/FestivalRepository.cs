@@ -29,34 +29,39 @@ namespace CinemaFest.Persistence.Dapper.Repositories
             //SqlMapper.AddTypeHandler(typeof(ICollection<FestivalImage>), new JsonTypeHandler());
         }
 
-        public async Task<int> CreateFestivalWithImagesAndLocationsAsync(Festival festival)
+        public async Task<int> CreateFestivalAsync(Festival festival)
         {
             festival = await AddFestivalToDatabase(festival);
             await AddFestivalImagesToDatabase(festival);
             await AddFestivalLocationsToDatabase(festival);
-            
+            await AddFestivalTaxonomiesToDatabase(festival);
+
+
             return festival.Id;
         }
         public async Task<IEnumerable<Festival>> RetrieveAllFestivalsWithImagesAndLocationsAsync()
         {
             var allFestivalImages = await GetAllFestivalImages();
             var allFestivalLocations = await GetAllFestivalLocations();
+            var allFestivalTaxonomies = await GetAllFestivalTaxonomies();
             var allFestivals = await GetAllFestivals();
 
             foreach (Festival festival in allFestivals)
             {
                 festival.Images = allFestivalImages.Any(i => i.Festival_Id == festival.Id) ? allFestivalImages.Where(i => i.Festival_Id == festival.Id).ToList() : null;
                 festival.Locations = allFestivalLocations.Any(l => l.Festival_Id == festival.Id) ? allFestivalLocations.Where(l => l.Festival_Id == festival.Id).ToList() : null;
+                festival.Taxonomies = allFestivalTaxonomies.Any(t => t.Festival_Id == festival.Id) ? allFestivalTaxonomies.Where(t => t.Festival_Id == festival.Id).ToList() : null;
             }
 
             return allFestivals;
         }
-        public async Task<Festival> RetrieveFestivalWithImagesAndLocationsByIdAsync(int id)
+        public async Task<Festival> RetrieveFestivalByIdAsync(int id)
         {
             var festival = await GetFestival(id); //TODO check if this can be a parameter coming from validation
 
             festival.Images = await GetFestivalImagesFromFestival(id);
             festival.Locations = await GetFestivalLocationsFromFestival(id);
+            festival.Taxonomies = await GetFestivalTaxonomiesFromFestival(id);
 
             return festival;
         }
@@ -66,48 +71,26 @@ namespace CinemaFest.Persistence.Dapper.Repositories
      
             var currentDbImages = await GetFestivalImagesFromFestival(festival.Id); //TODO see if can bring it from validation
             var currentDbLocations = await GetFestivalLocationsFromFestival(festival.Id); //TODO see if can bring it from validation
+            var currentDbTaxonomies = await GetFestivalTaxonomiesFromFestival(festival.Id);
 
             await DeleteFestivalImagesInDatabase(currentDbImages, festival.Images);
             await UpsertFestivalImagesInDatabase(festival);
 
-            await DeleteLocationsInDatabase(currentDbLocations, festival.Locations);
-            await UpsertLocationsInDatabase(festival);
+            await DeleteFestivalLocationsInDatabase(currentDbLocations, festival.Locations);
+            await UpsertFestivalLocationsInDatabase(festival);
 
-            //var actualImages = festival.Images;
-
-            //var updateImagesSql = @"INSERT INTO FestivalImages(Id,Img,Type_Id,Festival_Id, Filepath)
-            //    VALUES(@Id,@Img,@Type_id,@Festival_Id, @Filepath) 
-            //    ON DUPLICATE KEY UPDATE Img = @Img , FilePath = @FilePath;";
-
-            //foreach(FestivalImage image in currentDbImages)
-            //{
-            //    if(!actualImages.Select(x => x.Id).Contains(image.Id))
-            //    {
-            //        await DeleteFestivalImageFromDatabaseById(image.Id);
-            //    }
-            //};
-
-
-
-            //foreach (FestivalImage image in actualImages)
-            //{
-            //    //await dbConnection.ExecuteAsync(@"INSERT INTO FestivalImages(Id,Img,Type_Id,Festival_Id, Filepath)
-            //    //VALUES(@Id,@Img,@Type_id,@Festival_Id, @Filepath) 
-            //    //ON DUPLICATE KEY UPDATE Img = @Img , FilePath = @FilePath;",
-            //    //new
-            //    //{
-            //    //    image.Id,
-            //    //    image.Img,
-            //    //    Type_Id = image.Type,
-            //    //    Festival_Id = festival.Id,
-            //    //    image.FilePath
-            //    //}, dbTransaction);
-            //    await UpsertFestivalImageInDatabase(image,festival.Id);
-            //}
+            await DeleteFestivalTaxonomiesInDatabase(currentDbTaxonomies, festival);
+            await UpsertFestivalTaxonomiesInDatabase(festival);
 
             return festival.Id;
         }
 
+        public bool FestivalExistsById(int Id)
+        {
+            return dbConnection.ExecuteScalar<bool>(@"SELECT count(1) from Festivals where Id=@Id", 
+                new { Id },
+                dbTransaction);
+        }
         public Task<int> DeleteAsync(int id)
         {
             throw new NotImplementedException();
@@ -158,18 +141,38 @@ namespace CinemaFest.Persistence.Dapper.Repositories
         {
             if (festival.Locations.Any())
             {
-                var insertLocationsSql = @"INSERT INTO Locations(StreetAddress,City,State,ZipCode,Festival_Id) 
-                VALUES(@StreetAddress,@City,@State,@ZipCode,@Festival_Id)";
+                var insertLocationsSql = @"INSERT INTO Locations(Street,Number,Apartment,Floor,Locality_Id,Festival_Id) 
+                VALUES(@Street,@Number,@Apartment,@Floor,@Locality_Id,@Festival_Id)";
 
                 foreach (Address location in festival.Locations)
                 {
                     await dbConnection.ExecuteAsync(insertLocationsSql,
                       new
                       {
-                          location.StreetAddress,
-                          location.City,
-                          location.State,
-                          location.ZipCode,
+                          location.Street,
+                          location.Number,
+                          location.Apartment,
+                          location.Floor,
+                          Locality_Id = location.Locality_Id,
+                          Festival_id = festival.Id
+                      }, dbTransaction);
+                }
+            }
+        }
+
+        private async Task AddFestivalTaxonomiesToDatabase(Festival festival)
+        {
+            if (festival.Taxonomies.Any())
+            {
+                var insertTaxonomiesSql = @"INSERT INTO FestivalTaxonomies(Taxonomy_Id,Festival_Id) 
+                VALUES(@Taxonomy_Id,@Festival_Id)";
+
+                foreach (Taxonomy taxonomies in festival.Taxonomies)
+                {
+                    await dbConnection.ExecuteAsync(insertTaxonomiesSql,
+                      new
+                      {
+                          Taxonomy_Id = taxonomies.Id,
                           Festival_id = festival.Id
                       }, dbTransaction);
                 }
@@ -188,6 +191,14 @@ namespace CinemaFest.Persistence.Dapper.Repositories
                 @"SELECT * FROM Locations",
                 dbTransaction)).ToList();
         }
+
+        private async Task<ICollection<Taxonomy>> GetAllFestivalTaxonomies()
+        {
+            return (await dbConnection.QueryAsync<Taxonomy>(
+                @"SELECT t.*,Festival_Id FROM FestivalTaxonomies ft JOIN Taxonomies t 
+                                                ON ft.Taxonomy_Id = t.Id",
+                dbTransaction)).ToList();
+        }
         private async Task<ICollection<Festival>> GetAllFestivals()
         {
             return (await dbConnection.QueryAsync<Festival>(
@@ -204,11 +215,30 @@ namespace CinemaFest.Persistence.Dapper.Repositories
         }
         private async Task<ICollection<Location>> GetFestivalLocationsFromFestival(int id)
         {
-            return (await dbConnection.QueryAsync<Location>(
+            var locations = (await dbConnection.QueryAsync<Location>(
                 @"SELECT * FROM Locations WHERE Festival_Id = @Id",
                 new { Id = id },
                 dbTransaction)).ToList();
+
+            //foreach(Location location in locations)
+            //{
+            //    location.Locality = (await dbConnection.QueryAsync<Locality>(
+            //    @"SELECT * FROM Localities WHERE Id = @Id",
+            //    new { Id = location.Locality_Id },
+            //    dbTransaction)).FirstOrDefault();
+            //}
+
+            return locations;
         }
+        private async Task<ICollection<Taxonomy>> GetFestivalTaxonomiesFromFestival(int id)
+        {
+            return (await dbConnection.QueryAsync<Taxonomy>(
+                @"SELECT t.* FROM FestivalTaxonomies ft JOIN Taxonomies t 
+                                                ON ft.Taxonomy_Id = t.Id WHERE Festival_Id = @Id",
+                new { Id = id },
+                dbTransaction)).ToList();
+        }
+
         private async Task<Festival> GetFestival(int id)
         {
             return (await dbConnection.QueryAsync<Festival>(
@@ -263,7 +293,7 @@ namespace CinemaFest.Persistence.Dapper.Repositories
             };
         }
 
-        private async Task DeleteLocationInDatabaseById(int id)
+        private async Task DeleteFestivalLocationInDatabaseById(int id)
         {
             await dbConnection.ExecuteAsync(
                      @"	DELETE FROM Locations 
@@ -275,13 +305,13 @@ namespace CinemaFest.Persistence.Dapper.Repositories
                      dbTransaction);
         }
 
-        private async Task DeleteLocationsInDatabase(ICollection<Location> currentDatabaseList, ICollection<Location> updateList)
+        private async Task DeleteFestivalLocationsInDatabase(ICollection<Location> currentDatabaseList, ICollection<Location> updateList)
         {
             foreach (Location location in currentDatabaseList)
             {
                 if (!updateList.Select(x => x.Id).Contains(location.Id))
                 {
-                    await DeleteLocationInDatabaseById(location.Id);
+                    await DeleteFestivalLocationInDatabaseById(location.Id);
                 }
             };
         }
@@ -301,25 +331,27 @@ namespace CinemaFest.Persistence.Dapper.Repositories
                 }, dbTransaction);
         }
 
-        private async Task UpsertLocationInDatabase(Location location, int festivalId)
+        private async Task UpsertFestivalLocationInDatabase(Location location, int festivalId)
         {
-            await dbConnection.ExecuteAsync(@"INSERT INTO Locations(StreetAddress,City,State,ZipCode,Festival_Id) 
-                VALUES(@StreetAddress,@City,@State,@ZipCode,@Festival_Id)
+            await dbConnection.ExecuteAsync(@"INSERT INTO Locations(Id,Street,Number,Apartment,Floor,Locality_Id,Festival_Id) 
+                VALUES(@Id, @Street,@Number,@Apartment,@Floor,@Locality_Id,@Festival_Id)
                 ON DUPLICATE KEY UPDATE 
-                                StreetAddress = @StreetAddress , 
-                                City = @City,
-                                State = @State , 
-                                ZipCode = @ZipCode;",
+                                Street = @Street, 
+                                Number = @Number,
+                                Apartment = @Apartment, 
+                                Floor = @Floor,
+                                Locality_Id = @Locality_Id;",
                 new
                 {
                     location.Id,
-                    location.StreetAddress,
-                    location.City,
-                    location.State,
-                    location.ZipCode,
+                    location.Street,
+                    location.Number,
+                    location.Apartment,
+                    location.Floor,
+                    Locality_Id = location.Locality_Id,
                     Festival_Id = festivalId
                 }, dbTransaction);
-        }
+            }
         #endregion
         private async Task UpsertFestivalImagesInDatabase(Festival festival)
         {
@@ -328,14 +360,57 @@ namespace CinemaFest.Persistence.Dapper.Repositories
                 await UpsertFestivalImageInDatabase(image, festival.Id);
             }
         }
-        private async Task UpsertLocationsInDatabase(Festival festival)
+        private async Task UpsertFestivalLocationsInDatabase(Festival festival)
         {
             foreach (Location image in festival.Locations)
             {
-                await UpsertLocationInDatabase(image, festival.Id);
+                await UpsertFestivalLocationInDatabase(image, festival.Id);
             }
         }
 
+        private async Task UpsertFestivalTaxonomyInDatabase(Taxonomy taxonomy, int festivalId)
+        {
+            await dbConnection.ExecuteAsync(@"INSERT INTO FestivalTaxonomies(Taxonomy_Id,Festival_Id) 
+                VALUES(@Taxonomy_Id,@Festival_Id) 
+                ON DUPLICATE KEY UPDATE Taxonomy_Id = Taxonomy_Id , Festival_Id = Festival_Id;",
+                new
+                {
+                    Taxonomy_Id = taxonomy.Id,
+                    Festival_id = festivalId
+                }, dbTransaction);
+        }
 
+        private async Task UpsertFestivalTaxonomiesInDatabase(Festival festival)
+        {
+            foreach(Taxonomy taxonomy in festival.Taxonomies)
+            {
+                UpsertFestivalTaxonomyInDatabase(taxonomy, festival.Id);
+            }
+        }
+
+        private async Task DeleteFestivalTaxonomyInDatabase(Taxonomy taxonomy,int festivalId)
+        {
+            await dbConnection.ExecuteAsync(
+         @"	DELETE FROM FestivalTaxonomies 
+                        WHERE Taxonomy_Id = @Taxonomy_Id AND Festival_Id = @Festival_Id;",
+         new
+         {
+             Taxonomy_Id = taxonomy.Id,
+             Festival_Id = festivalId
+         },
+         dbTransaction);
+        }
+
+        private async Task DeleteFestivalTaxonomiesInDatabase(ICollection<Taxonomy> currentDatabaseList, Festival festival)
+        {
+            var updateList = festival.Taxonomies;
+            foreach (Taxonomy taxonomy in currentDatabaseList)
+            {
+                if (!updateList.Select(x => x.Id).Contains(taxonomy.Id))
+                {
+                    await DeleteFestivalTaxonomyInDatabase(taxonomy,festival.Id);
+                }
+            };
+        }
     }
 }

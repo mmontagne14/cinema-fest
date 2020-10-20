@@ -1,5 +1,8 @@
 ﻿using CinemaFest.Application.Interfaces;
+using CinemaFest.Domain.Entities;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 
 namespace CinemaFest.Infraestructure.Shared.Services
@@ -19,6 +22,16 @@ namespace CinemaFest.Infraestructure.Shared.Services
                 }
             }
             return fileBase64;
+        }
+
+        public ICollection<FestivalImage> GetBase64FromFestivalImagesStream(ICollection<FestivalImage> images)
+        {
+            foreach (FestivalImage img in images)
+            {
+                img.Img = GetBase64FromStream(img.FilePath);
+            }
+
+            return images;
         }
     }
 }

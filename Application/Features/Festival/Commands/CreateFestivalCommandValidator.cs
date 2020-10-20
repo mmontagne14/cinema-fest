@@ -13,15 +13,16 @@ namespace CinemaFest.Application.Features.Festival.Commands
         {
             RuleFor(f => f.Name)
                 .Cascade(CascadeMode.Stop)
-                .NotEmpty()
-                .NotNull()
-                .MaximumLength(50);
+                .NotEmpty().WithMessage("*Requerido")
+                .MaximumLength(100);
 
             RuleFor(f => f.About)
-                .MaximumLength(250);
+                .NotEmpty().WithMessage("*Requerido")
+                .MaximumLength(2500);
 
             RuleFor(f => f.FirstEditionYear)
-                .NotEmpty();
+                .NotEmpty().WithMessage("*Requerido")
+                .LessThan(DateTime.Now.Year + 1);
 
         }
     }

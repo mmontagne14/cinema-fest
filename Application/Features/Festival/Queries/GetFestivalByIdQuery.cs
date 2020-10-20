@@ -27,7 +27,7 @@ namespace CinemaFest.Application.Features.Festival.Queries
 
         public async Task<Festival> Handle(GetFestivalByIdQuery request, CancellationToken cancellationToken)
         {
-            return await unitOfwork.Festivals.RetrieveFestivalWithImagesAndLocationsByIdAsync(request.Id);
+            return await unitOfwork.Festivals.RetrieveFestivalByIdAsync(request.Id);
 
 
         }
